@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+
+{% block title %} | Registrar cuenta {% endblock %}
+
+{% block content %}
+<section id="register" class="bg-light py-5">
+    <div class="container">
+        <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4>
+                    <box-icon name='user-plus' type='solid' ></box-icon> Registrate</h4>
+            </div>
+            <div class="card-body">
+            <!-- Alerts -->
+            {% include 'partials/_alerts.html' %}
+            <form action="{% url 'register' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" name="firstname" class="input-text" placeholder="Nombre" required>
+                    <!-- <i class="fa fa-user"></i> -->
+                </div>
+            
+                <div class="form-group">
+                    <input type="text" name="lastname" class="input-text" placeholder="Apellido" required>
+                    <!-- <i class="fa fa-user"></i> -->
+                </div>
+            
+                <div class="form-group ">
+                    <input type="text" name="username" class="input-text" placeholder="Usuario" required>
+                    
+                </div>
+            
+                <div class="form-group">
+                    <input type="email" name="email" class="input-text" placeholder="Email" required>
+                    
+                </div>
+            
+                <div class="form-group">
+                    <input type="password" name="password" class="input-text" placeholder="Contraseña" required>
+                    
+                </div>
+            
+                <div class="form-group">
+                    <input type="password" name="confirm_password" class="input-text" placeholder="Confirmar contraseña" required>
+                    
+                </div>
+            
+                <div class="form-group">
+                    <input type="text" name="carrera" class="input-text" placeholder="Programa academico" required>
+                    
+                </div>
+            
+                <div class="form-group">
+                    <select name="genero" id="lang">
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                   </select>
+                </div>
+            
+                <div class="form-group mb-0 clearfix">
+                    <button type="submit" class="btn-md btn-success float-left">Registrar</button>
+                </div>
+                                    
+                <div class="extra-login clearfix">
+                    <span><p>Ya eres miembro? <a href="{% url 'login' %}" class="thembo"> Inicia sesion aqui</a></p></span>
+                </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+  {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+                    
+
+
+
+<<<<<<< HEAD
+=======
+    <div class="form-group form-box">
+        <input type="text" name="username" class="input-text" placeholder="Username" required>
+        <i class="fa fa-user"></i>
+    </div>
+
+    <div class="form-group form-box">
+        <input type="email" name="email" class="input-text" placeholder="Email Address" required>
+        <i class="flaticon-mail"></i>
+    </div>
+
+    <div class="form-group form-box">
+        <input type="password" name="password" class="input-text" placeholder="Password" required>
+        <i class="flaticon-lock"></i>
+    </div>
+
+    <div class="form-group form-box">
+        <input type="password" name="confirm_password" class="input-text" placeholder="Confirm Password" required>
+        <i class="flaticon-lock"></i>
+    </div>
+
+    <div class="form-group form-box">
+        <input type="text" name="carrera" class="input-text" placeholder="Academic Program" required>
+        <i class="flaticon-lock"></i>
+    </div>
+
+    <div>
+        <select name="genero" id="lang" placeholder="Sex">
+        <option value="hombre">Hombre</option>
+        <option value="mujer">Mujer</option>
+       </select>
+    </div>
+
+    <div class="form-group mb-0 clearfix">
+        <button type="submit" class="btn-md btn-success float-left">Register</button>
+    </div>
+                        
+    <div class="extra-login clearfix">
+        <span><p>Already a member? <a href="{% url 'login' %}" class="thembo"> Login here</a></p></span>
+    </div>
+</form>
+>>>>>>> 38656814eaba21af964f6126fdf7755c2476821e
+                    
+               

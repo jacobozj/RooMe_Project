@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %} | Inicio sesion {% endblock %}
+
+{% block content %}
+<section id="login" class="bg-light py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card">
+            <div class="card-header bg-primary text-white">
+              <h4>
+                <box-icon type='solid' name='user'></box-icon> Inicia sesion</h4>
+            </div>
+            <div class="card-body">
+              <!-- Alerts -->
+              {% include 'partials/_alerts.html' %}
+                <form action="{% url 'login' %}" method="POST">
+                    {% csrf_token %}
+                      <div class="form-group form-box">
+                          <input type="text" name="username" class="input-text" placeholder="Usuario" required>
+                          <!-- <box-icon name='envelope'></box-icon> -->
+                      </div>
+                      <div class="form-group form-box">
+                          <input type="password" name="password" class="input-text" placeholder="Contraseña" required>
+                          <!-- <i class="flaticon-lock"></i> -->
+                      </div>
+                      <div class="form-group mb-0 clearfix">
+                          <button type="submit" class="btn-md btn-success float-left">Iniciar sesion</button>
+                      </div>
+                      <div class="extra-login clearfix">
+                          <span><p>No tienes cuenta? <a href="{% url 'register' %}" class="thembo"> Registrate aqui</a></p></span>
+                      </div>
+                      <div class="clearfix"></div>
+                  
+                  </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endblock %}
+
+
