@@ -12,18 +12,20 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!-- Lightbox -->
     <link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}">
-    <!-- box icons -->
-
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{% static 'img/favicon-removebg-preview.png' %}" type="image/x-icon" >
     
     <title>RooMe</title>
 </head>
 <body>
     <!-- NavBar -->
     {% include 'partials/_navbar.html' %}
-        <!-- Main Content -->
+    <!-- Main Content -->
     {% block content %} {% endblock %}
+    <!-- Footer -->
+    {% include 'partials/_footer.html' %}
     
-
+    <script src="https://kit.fontawesome.com/3788f446ae.js" crossorigin="anonymous"></script>
     <script src="{% static 'js/jquery-3.3.1.min.js' %} "></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %} "></script>
     <script src="{% static 'js/lightbox.min.js' %} "></script>

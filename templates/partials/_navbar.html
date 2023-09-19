@@ -2,6 +2,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark navbarbg-primary sticky-top">
     <div class="container">
+      <!-- Logo de roome en navbar -->
       <a class="navbar-brand" href="{% url 'index' %}">
         <img src="{% static 'img/logoo.png' %}" class="logo" alt="">
       </a>
@@ -28,9 +29,7 @@
           >
             <a class="nav-link" href="{% url 'about' %}">About</a>
           </li>
-          
-
-        <ul class="navbar-nav ml-auto">
+        
           {% if user.is_authenticated %}
             <li
             {% if 'dashboard' in request.path %}
@@ -40,7 +39,7 @@
             {% endif %}
             >
               <a class="nav-link" href="{% url 'dashboard' %}">
-               Welcome {{ user.username }} (Dashboard)</a>
+                Welcome {{ user.username }} (Dashboard)</a>
             </li>
             <li class="nav-item mr-3">
               <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
@@ -60,7 +59,7 @@
             {% endif %}
             >
               <a class="nav-link" href="{% url 'register' %}">
-                <box-icon type='solid' name='user-plus'></box-icon> Register</a>
+                <i class="fas fa-user-plus"></i> Register</a>
             </li>
             <li
             {% if 'login' in request.path %}
@@ -70,7 +69,7 @@
             {% endif %}
             >
               <a class="nav-link" href="{% url 'login' %}">
-                <box-icon type='solid' name='user'></box-icon>
+                <i class="fas fa-sign-in-alt"></i>
 
                 Login</a>
             </li>
