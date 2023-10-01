@@ -10,20 +10,71 @@
     <div class="container text-center">
       <div class="home-search p-5">
         <div class="overlay p-5">
-
-          <h1 class="display-2 mb-4 text-white">
+          <h1 class="display-2 mb-4 text-white font-bold">
             RooMe
           </h1>
-        
+          <p class="lead">Encuentra la habitacion que se ajuste a tus necesidades!</p>
+          <div class="search">
+            <form action=""> 
+              <!-- Form Row 1 -->
+              <div class="form-row">
+                <div class="col-md-4 mb-3">
+                  <label class="sr-only">Keywords</label>
+                  <input type="text" name="keywords" class="form-control" placeholder="Palabras clave">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                  <label class="sr-only">City</label>
+                  <input type="text" name="city" class="form-control" placeholder="Ciudad">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                  <label class="sr-only">State</label>
+                  <select name="state" class="form-control">
+                    <option selected="true" disabled="disabled">Region (Todo)</option>
+                    {% for key,value in state_choices.items %}
+                      <option value="{{ key }}">{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <!-- Form Row 2 -->
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label class="sr-only">Bedrooms</label>
+                  <select name="bedrooms" class="form-control">
+                    <option selected="true" disabled="disabled">Habitaciones (Todo)</option>
+                    {% for key,value in bedroom_choices.items %}
+                      <option value="{{ key }}">{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <select name="price" class="form-control" id="type">
+                    <option selected="true" disabled="disabled">Precio Max (Cualquiera)</option>
+                    {% for key,value in price_choices.items %}
+                      <option value="{{ key }}">{{ value }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <button class="btn btn-success btn-block mt-4" type="submit">Buscar</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </section>
 <br>
 
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
 
+<!-- listings -->
   
+
+
   <section id="services" class="py-5 bg-secondary text-white">
     <div class="container">
       <div class="row text-center">
