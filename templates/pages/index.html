@@ -72,8 +72,6 @@
 {% include 'partials/_alerts.html' %}
 
 <!-- listings -->
-  
-
 
   <section id="services" class="py-5 bg-secondary text-white">
     <div class="container">
@@ -103,4 +101,20 @@
       </div>
     </div>
   </section>
+
+  <div class="container">
+    {% for room in rooms %}
+      <h1>{{ room.description }}</h3>
+      <h3>{{ room.price }}</h3>
+      <h3>{{ room.location }}</h3>
+      <h3>{{ room.reserved }}</h3>
+      <h3>{{ room.bedrooms }}</h3>
+      <h3>{{ room.bathrooms }}</h3>
+      <h3>{{ room.area }}</h3>
+    {% endfor %}
+    <br />
+    <br />
+  </div>
+
+
 {% endblock %}

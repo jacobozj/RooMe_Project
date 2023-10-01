@@ -13,9 +13,14 @@ def login(request):
 
         user = auth.authenticate(username=username, password=password)
         if user is not None:
-            auth.login(request, user)
-            messages.success(request, 'Has iniciado sesion.')
-            return redirect('dashboard')
+            if user.is_superuser:
+                auth.login(request, user)
+                messages.success(request, 'Has iniciado sesion.')
+                return redirect('/admin/')
+            else:
+                auth.login(request, user)
+                messages.success(request, 'Has iniciado sesion.')
+                return redirect('dashboard')
         else:
             messages.error(request, 'Los datos son incorrectos')
             return redirect('login')
