@@ -10,3 +10,4 @@ class Users(models.Model):
     confirm_password=models.CharField(max_length=45)
     program=models.CharField(max_length=45)
     sex=models.CharField(max_length=45)
+    profile=models.CharField(max_length=15)

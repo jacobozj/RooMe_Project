@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
-    'pages'
+    'pages',
+    'rooms',
 ]
 
 MIDDLEWARE = [
@@ -82,7 +83,7 @@ DATABASES = {
             'USER': 'usuario',
             'PASSWORD': '12345678',
             'HOST': 'localhost',
-            'PORT': '3306',
+            'PORT': '3307',
         }
 }
 
