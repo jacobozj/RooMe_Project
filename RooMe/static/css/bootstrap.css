@@ -20,7 +20,7 @@
   --gray-dark: #343a40;
   --roome: #6C96F8;
   --primary: #10284e;
-  --secondary: #30caa0;
+  --secondary: #6C96F8;
   --success: #20c997;
   --info: #17a2b8;
   --warning: #ffc107;
@@ -334,8 +334,8 @@ h6, .h6 {
   line-height: 1.2; }
 
 .display-2 {
+  
   font-size: 5.5rem;
-  font-weight: 300;
   line-height: 1.2; }
 
 .display-3 {
@@ -4298,7 +4298,7 @@ button.bg-primary:focus {
   background-color: #071224 !important; }
 
 .bg-secondary {
-  background-color: #30caa0 !important; }
+  background-color: #6C96F8 !important; }
 
 a.bg-secondary:hover, a.bg-secondary:focus,
 button.bg-secondary:hover,
