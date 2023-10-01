@@ -12,7 +12,6 @@ def login(request):
         password = request.POST['password']
 
         user = auth.authenticate(username=username, password=password)
-
         if user is not None:
             auth.login(request, user)
             messages.success(request, 'Has iniciado sesion.')
