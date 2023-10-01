@@ -104,13 +104,14 @@
 
   <div class="container">
     {% for room in rooms %}
-      <h1>{{ room.description }}</h3>
-      <h3>{{ room.price }}</h3>
-      <h3>{{ room.location }}</h3>
-      <h3>{{ room.reserved }}</h3>
-      <h3>{{ room.bedrooms }}</h3>
-      <h3>{{ room.bathrooms }}</h3>
-      <h3>{{ room.area }}</h3>
+      <h1>Descripción: {{ room.description }}</h3>
+      <h3>Precio: {{ room.price }}</h3>
+      <h3>Ubacicación: {{ room.location }}</h3>
+      <h3>Reservada: {{ room.reserved }}</h3>
+      <h3>Habitaciones: {{ room.bedrooms }}</h3>
+      <h3>Baños: {{ room.bathrooms }}</h3>
+      <h3>Área: {{ room.area }}</h3>
+      <img src="{{ room.image.url }}">
     {% endfor %}
     <br />
     <br />

@@ -9,5 +9,7 @@ class Rooms(models.Model):
     bedrooms=models.IntegerField()
     bathrooms=models.IntegerField()
     area=models.IntegerField()
+    image=models.ImageField(upload_to='rooms/images/', default="")
+
     
   
