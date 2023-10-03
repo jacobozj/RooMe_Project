@@ -78,6 +78,8 @@ def register(request):
 #     return render(request, 'pages/index.html')
 
 
+
+
 def logout(request):
     if request.method == 'POST':
         auth.logout(request)

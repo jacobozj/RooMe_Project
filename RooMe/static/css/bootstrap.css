@@ -5,6 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 :root {
+  --darken: #001524;
   --blue: #10284e;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -3129,11 +3130,10 @@ input[type="button"].btn-block {
 
 .card-img-overlay {
   position: absolute;
-  top: 0;
+  top: -4px;
   right: 0;
   bottom: 0;
-  left: 0;
-  padding: 1.25rem; }
+  left: -1px;}
 
 .card-img {
   width: 100%;
@@ -3141,8 +3141,10 @@ input[type="button"].btn-block {
 
 .card-img-top {
   width: 100%;
-  border-top-left-radius: calc( 0.25rem - 1px);
-  border-top-right-radius: calc( 0.25rem - 1px); }
+  height: 250px;
+  object-fit: cover;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem; }
 
 .card-img-bottom {
   width: 100%;
@@ -3357,7 +3359,10 @@ input[type="button"].btn-block {
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  border-radius: 0.25rem; }
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-bottom-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+}
   .badge:empty {
     display: none; }
 
@@ -3380,7 +3385,7 @@ input[type="button"].btn-block {
 
 .badge-secondary {
   color: #212529;
-  background-color: #30caa0; }
+  background-color: #fff; }
   .badge-secondary[href]:hover, .badge-secondary[href]:focus {
     color: #212529;
     text-decoration: none;

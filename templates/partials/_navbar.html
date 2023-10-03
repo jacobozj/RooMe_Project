@@ -32,15 +32,22 @@
         
           {% if user.is_authenticated %}
             <li
+            {% if user.is_superuser %}
+              <li class="nav-item mr-3">
+                  <a class="nav-link" href="{% url 'admin:index' %}">Administrador</a>
+              </li>
+            {% else %}
             {% if 'dashboard' in request.path %}
               class="nav-item active mr-3"
             {% else %}
               class="nav-item mr-3"
             {% endif %}
             >
+
               <a class="nav-link" href="{% url 'dashboard' %}">
-                Welcome {{ user.username }} (Dashboard)</a>
+                {{ user.username }} (Dashboard)</a>
             </li>
+            {% endif %}
             <li class="nav-item mr-3">
               <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
                 <i class="fas fa-sign-out-alt"></i> Logout
