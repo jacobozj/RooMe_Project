@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block title %} | {{ rooms.title }} {% endblock %}
+
+{% block content %}
+
+  <!-- Breadcrumb -->
+  <section id="bc" class="mt-3">
+    <div class="container">
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'index' %}">Inicio</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="{% url 'index' %}">Habitaciones</a>
+          </li>
+          <li class="breadcrumb-item active">{{ rooms.title }}</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Alerts -->
+  {% include 'partials/_alerts.html' %}
+
+  <!-- rooms -->
+  <section id="listings" class="py-2">
+    <div class="container">
+      <a href="{% url 'index' %}" class="btn btn-light mb-2">Volver a las Habitaciones</a>
+      <div class="container">
+        <div class="row-md-9 align-items-center">
+          <div class="col-md-9 text-left">
+            <h1 class="display-4">{{ rooms.title }}</h1>
+          </div>
+          <div class="col-md-9 text-left">
+            <p class="lead">
+              <i class="fas fa-map-marker"></i> {{ rooms.city }} {{ rooms.state }}, {{ rooms.location }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-9">
+          <!-- Home Main Image -->
+          <img src="{{ rooms.image.url }}" alt="" class="img-main img-fluid mb-3">
+          <!-- Thumbnails -->
+          
+          <!-- Fields -->
+          <div class="row mb-5 fields">
+            <div class="col-md-6">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item text-dark">
+                  <i class="fas fa-money-bill-alt"></i> Precio:
+                  <span class="float-right">${{ rooms.price | intcomma }}</span>
+                </li>
+                <li class="list-group-item text-dark">
+                  <i class="fas fa-bed"></i> Habitaciones:
+                  <span class="float-right">{{ rooms.bedrooms }}</span>
+                </li>
+                <li class="list-group-item text-dark">
+                  <i class="fas fa-bath"></i> Baños:
+                  <span class="float-right">{{ rooms.bathrooms }}</span>
+                </li>
+                <li class="list-group-item text-dark">
+                  <i class="fas fa-car"></i> Garaje:
+                  <span class="float-right">{{ rooms.garage }}
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item text-dark">
+                  <i class="fas fa-th-large"></i> Area:
+                  <span class="float-right">{{ rooms.area }}</span>
+                </li>
+                <li class="list-group-item text-dark">
+                  <i class="fas fa-square"></i> NA
+                  <span class="float-right">
+                  </span>
+                </li>
+                <li class="list-group-item text-dark">
+                  <i class="fas fa-calendar"></i> rooms Date:
+                  <span class="float-right"> </span>
+                </li>
+                <li class="list-group-item text-dark">
+                  <i class="fas fa-bed"></i> Vendendor:
+                  <span class="float-right">
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="row mb-5">
+            <div class="col-md-12">
+                {{ rooms.description }}
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card mb-3">
+            <img class="card-img-top" src="{{ rooms.image.url }}" alt="">
+            <div class="card-body">
+              <h5 class="card-title">Property Realtor</h5>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+{% endblock %}
