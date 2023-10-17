@@ -13,7 +13,7 @@ class Rooms(models.Model):
     garage=models.IntegerField(default=0)
     city=models.CharField(max_length=20,default="")
     state=models.CharField(max_length=20,default="")
-    image1=models.ImageField(upload_to='rooms/images/', default="")
+    image=models.ImageField(upload_to='rooms/images/', default="")
     image2=models.ImageField(upload_to='rooms/images/', default="")
     image3=models.ImageField(upload_to='rooms/images/', default="")
     image4=models.ImageField(upload_to='rooms/images/', default="")
