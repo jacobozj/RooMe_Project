@@ -20,6 +20,10 @@ img {
   opacity: 0.9;
   text-transform: uppercase; }
 
+  .img-main{
+    height: 500px;
+    width: auto;
+  }
 
 
 .social a {
