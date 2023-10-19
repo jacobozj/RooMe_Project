@@ -2,6 +2,12 @@
  * Font Awesome Free 5.3.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
+
+/* Cambia el font-family en el cuerpo de tu página */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
 .fa,
 .fas,
 .far,
