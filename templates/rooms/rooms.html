@@ -47,12 +47,44 @@
           <!-- Home Main Image -->
           <img src="{{ rooms.image.url }}" alt="" class="img-main img-fluid mb-3">
           <!-- Thumbnails -->
-          
+          <div class="row mb-5 thumbs">
+            {% if rooms.image %}
+            <div class="col-md-2">
+              <a href="{{ rooms.image.url }}" data-lightbox="home-images">
+                <img src="{{ rooms.image.url }}" alt="" class="img-fluid">
+              </a>
+            </div>
+            {% endif %}
+            {% if rooms.image2 %}
+            <div class="col-md-2">
+              <a href="{{ rooms.image2.url }}" data-lightbox="home-images">
+                <img src="{{ rooms.image2.url }}" alt="" class="img-fluid">
+              </a>
+            </div>
+            {% endif %}
+            {% if rooms.image3 %}
+            <div class="col-md-2">
+              <a href="{{ rooms.image3.url }}" data-lightbox="home-images">
+                <img src="{{ rooms.image3.url }}" alt="" class="img-fluid">
+              </a>
+            </div>
+            {% endif %}
+            {% if rooms.image4 %}
+            <div class="col-md-2">
+              <a href="{{ rooms.image4.url }}" data-lightbox="home-images">
+                <img src="{{ rooms.image4.url }}" alt="" class="img-fluid">
+              </a>
+            </div>
+            {% endif %}
+            {% if rooms.image5 %}
+            <div class="col-md-2">
+              <a href="{{ rooms.image5.url }}" data-lightbox="home-images">
+                <img src="{{ rooms.image5.url }}" alt="" class="img-fluid">
+              </a>
+            </div>
+            {% endif %}
+          </div>
           <!-- Fields -->
-          
-          
-        
-
           <!-- Description -->
           <div class="row mb-5">
             <div class="col-md-12">
