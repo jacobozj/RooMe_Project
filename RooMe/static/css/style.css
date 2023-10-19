@@ -29,6 +29,15 @@ img {
   height:100%
 }
 
+.imagen-pequena {
+  max-width: 50%; /* Puedes ajustar el valor para controlar el tamaño de la imagen */
+  height: auto; /* Mantiene la proporción de la imagen */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 #showcase {
   /* fixed cover */
   /* background: linear-gradient(rgba(51, 51, 51, 0.5), rgba(51, 51, 51, 0.5)); */
@@ -102,7 +111,7 @@ img {
     min-height: 270px; }
 
 #work {
-  background: #325096d3;
+  background: #6C96F8;
   padding: 6rem 0; }
 
 .listing-preview a {

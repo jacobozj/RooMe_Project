@@ -88,9 +88,8 @@
                   <span class="float-right">{{ rooms.area }}</span>
                 </li>
                 <li class="list-group-item text-dark">
-                  <i class="fas fa-square"></i> NA
-                  <span class="float-right">
-                  </span>
+                  <i class="fa fa-check-circle" aria-hidden="true"></i> Disponible: 
+                  <span class="float-right"> {{ rooms.reserved }} </span>
                 </li>
                 <li class="list-group-item text-dark">
                   <i class="fas fa-calendar"></i> Fecha:
@@ -98,8 +97,7 @@
                 </li>
                 <li class="list-group-item text-dark">
                   <i class="fas fa-user"></i> Rentador:
-                  <span class="float-right">
-                  </span>
+                  <span class="float-right"> {{ rooms.renter }} </span>
                 </li>
               </ul>
             </div>
