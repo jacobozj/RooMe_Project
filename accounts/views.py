@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from accounts.models import Users
+from .models import Users
+from rooms.models import Reserva
+
 
 # Create your views here.
 
@@ -15,11 +17,11 @@ def login(request):
         if user is not None:
             if user.is_superuser:
                 auth.login(request, user)
-                messages.success(request, 'Has iniciado sesion.')
+                messages.success(request, 'Has iniciado sesion como admin.')
                 return redirect('/admin/')
             else:
                 auth.login(request, user)
-                messages.success(request, 'Has iniciado sesion.')
+                messages.success(request, 'Has iniciado sesion como usuario.')
                 return redirect('dashboard')
         else:
             messages.error(request, 'Los datos son incorrectos')
@@ -40,7 +42,7 @@ def register(request):
 
         if password == confirm_password:
             if User.objects.filter(username=username).exists():
-                messages.error(request, 'El usuario ya esxiste!')
+                messages.error(request, 'Usuario ya esxiste!')
                 return redirect('register')
             else:
                 if User.objects.filter(email=email).exists():
@@ -53,7 +55,7 @@ def register(request):
                         usuario.save()
 
                         auth.login(request, user)
-                        messages.success(request, 'Has iniciado sesion.')
+                        messages.success(request, 'Has iniciado sesion como usuario.')
                         return redirect('dashboard')
                     elif tipo=="admin":
                         user = User.objects.create_superuser(first_name=firstname, last_name=lastname, email=email, username=username, password=password)
@@ -61,7 +63,7 @@ def register(request):
                         usuario.save()
 
                         auth.login(request, user)
-                        messages.success(request, 'Has iniciado sesion.')
+                        messages.success(request, 'Has iniciado sesion como admin.')
                         return redirect('/admin/')
                     
                     #user.save()
@@ -74,12 +76,6 @@ def register(request):
         return render(request, 'accounts/register.html')
 
 
-# def home(request):
-#     return render(request, 'pages/index.html')
-
-
-
-
 def logout(request):
     if request.method == 'POST':
         auth.logout(request)
@@ -87,5 +83,9 @@ def logout(request):
     return redirect('index')
 
 def dashboard(request):
-
-    return render(request, 'accounts/dashboard.html')
+    if request.user.is_authenticated:
+        user = Users.objects.get(username=request.user)
+        room = Reserva.objects.filter(usuario_id=user.id)
+        return render(request, 'accounts/dashboard.html', {'room': room})
+    else:
+        return redirect('login')

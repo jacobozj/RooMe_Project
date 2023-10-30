@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Rooms
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import Rooms, Reserva
+from accounts.models import Users
 from django.db.models import Q
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -54,3 +56,25 @@ def room(request, id):
 
 def about(request):
     return render(request, 'pages/about.html')
+
+def booking(request, id):
+    if request.user.is_authenticated:
+        users=Users.objects.get(username=request.user)
+        if users.profile=="estudiante":
+            room=get_object_or_404(Rooms,pk=id)
+            if room.bedrooms==room.available_bedrooms:
+                messages.error(request, "Habitaciones ya reservadas.")
+                room.reserved=True
+                room.save()
+                return redirect('index')
+            else:
+                Reserva.objects.create(habitacion=room, usuario=users)
+                room.available_bedrooms=room.available_bedrooms+1
+                room.save()
+                return render(request, 'accounts/dashboard.html', {'room': room})
+        else:
+            messages.error(request, "No puede reservar como admin.")
+            return redirect('login')
+    else:
+        messages.error(request, "Inicie sesión para reservar.")
+        return redirect('login')

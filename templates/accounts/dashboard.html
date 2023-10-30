@@ -37,28 +37,10 @@
       <div class="row">
         <div class="col-md-12">
           <h2>Welcome {{ user.first_name }}</h2>
-          {% if contacts %}
+          {% if room %}
             <p>Here are the property listings that you have inquired about</p>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Property</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for contact in contacts %}
-                  <tr>
-                    <td>{{ contact.id }}</td>
-                    <td>{{ contact.listing }}</td>
-                    <td>
-                      <a class="btn btn-light" href="{% url 'listing' contact.listing_id %}">View Listing</a>
-                    </td>
-                  </tr>
-                {% endfor %}
-              </tbody>
-            </table>
+                  {{ room.title }} 
+                  {{ room.state }}
           {% else %}
             <p>You have not made any inquiries</p>
           {% endif %}

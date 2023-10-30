@@ -102,7 +102,7 @@
                 </li>
                 <li class="list-group-item text-dark">
                   <i class="fas fa-bed"></i> Habitaciones:
-                  <span class="float-right">{{ rooms.bedrooms }}</span>
+                  <span class="float-right"> {{rooms.available_bedrooms}} / {{ rooms.bedrooms }}</span>
                 </li>
                 <li class="list-group-item text-dark">
                   <i class="fas fa-bath"></i> Baños:
@@ -120,7 +120,7 @@
                   <span class="float-right">{{ rooms.area }}</span>
                 </li>
                 <li class="list-group-item text-dark">
-                  <i class="fa fa-check-circle" aria-hidden="true"></i> Disponible: 
+                  <i class="fa fa-check-circle" aria-hidden="true"></i> Reservada: 
                   <span class="float-right"> {{ rooms.reserved }} </span>
                 </li>
                 <li class="list-group-item text-dark">
@@ -135,7 +135,7 @@
             </div>
             
           </div>
-          <a href="" class="btn btn-success btn-block">Reservar</a>
+          <a href="{% url 'reserva' id=rooms.id %}" class="btn btn-success btn-block">Reservar</a>
         </div>
         
       </div>
