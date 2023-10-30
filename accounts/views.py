@@ -3,7 +3,7 @@ from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .models import Users
-from rooms.models import Reserva
+from rooms.models import Reserva, Rooms
 
 
 # Create your views here.
@@ -84,8 +84,8 @@ def logout(request):
 
 def dashboard(request):
     if request.user.is_authenticated:
-        user = Users.objects.get(username=request.user)
-        room = Reserva.objects.filter(usuario_id=user.id)
-        return render(request, 'accounts/dashboard.html', {'room': room})
+        reserva = Reserva.objects.get(usuario_id=request.user.id)
+        room = Rooms.objects.get(id=reserva.habitacion_id)
+        return render(request, 'accounts/dashboard.html', {'room': room, 'reserva': reserva})
     else:
         return redirect('login')

@@ -67,6 +67,9 @@ def booking(request, id):
                 room.reserved=True
                 room.save()
                 return redirect('index')
+            elif Reserva.objects.filter(usuario_id=request.user.id):
+                messages.error(request, "Ya tienes reservas hechas.")
+                return redirect('index')
             else:
                 Reserva.objects.create(habitacion=room, usuario=users)
                 room.available_bedrooms=room.available_bedrooms+1
