@@ -32,7 +32,7 @@
                 <div class="col-md-4 mb-3">
                   <label class="sr-only">State</label>
                   <select name="state" class="form-control">
-                    <option selected="true" disabled="disabled">Region (Todo)</option>
+                    <option selected="true" disabled="disabled">Región</option>
                     {% for key,value in state_choices.items %}
                       <option value="{{ key }}">{{ value }}</option>
                     {% endfor %}
@@ -46,7 +46,7 @@
                 <div class="col-md-6 mb-3">
                   <label class="sr-only">Bedrooms</label>
                   <select name="bedrooms" class="form-control">
-                    <option selected="true" disabled="disabled">Habitaciones (Todo)</option>
+                    <option selected="true" disabled="disabled">Habitaciones</option>
                     {% for key,value in bedroom_choices.items %}
                       <option value="{{ key }}">{{ value }}</option>
                     {% endfor %}
@@ -55,7 +55,7 @@
 
                 <div class="col-md-6 mb-3">
                   <select name="price" class="form-control" id="type">
-                    <option selected="true" disabled="disabled">Precio Max (Cualquiera)</option>
+                    <option selected="true" disabled="disabled">Precio</option>
                     {% for key, value in price_choices.items %}
                       <option value="{{ key }}">{{ value }}</option>
                     {% endfor %}
@@ -113,7 +113,7 @@
                   <div class="col-6">
                     <i class="fas fa-bath"></i> Baños: {{ room.bathrooms }}</div>
                 </div>
-                <a href="{% url 'room' id=room.id %}" class="btn btn-primary btn-block">Mas Informacion</a>
+                <a href="{% url 'room' id=room.id %}" class="btn btn-primary btn-block">Más información</a>
               </div>
             </div>
           </div>

@@ -4,7 +4,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .models import Users
 from rooms.models import Reserva, Rooms
-
+import matplotlib.pyplot as plt
+from collections import Counter
 
 # Create your views here.
 
@@ -84,8 +85,29 @@ def logout(request):
 
 def dashboard(request):
     if request.user.is_authenticated:
-        reserva = Reserva.objects.get(usuario_id=request.user.id)
-        room = Rooms.objects.get(id=reserva.habitacion_id)
-        return render(request, 'accounts/dashboard.html', {'room': room, 'reserva': reserva})
+        if Reserva.objects.filter(usuario_id=request.user.id):
+            reserva = Reserva.objects.get(usuario_id=request.user.id)
+            room = Rooms.objects.get(id=reserva.habitacion_id)
+            return render(request, 'accounts/dashboard.html', {'room': room, 'reserva': reserva})
+        else:
+            return render(request, 'accounts/dashboard.html')
     else:
         return redirect('login')
+    
+def graficar(campo):
+    valores=Users.objects.values_list(campo, flat=True)
+    conteo=dict(Counter(valores))
+    plt.bar(conteo.keys(), conteo.values())
+    plt.xlabel(campo)
+    plt.ylabel('Cantidad')
+    plt.title(f'Gráfico de {campo}')
+    plt.xticks(rotation=90)
+    plt.yticks(range(min(conteo.values()), max(conteo.values()) + 1))
+    plt.show()
+
+
+def datos(request):
+    campos=['sex', 'program']
+    for campo in campos:
+        graficar(campo)
+    return redirect('index')
