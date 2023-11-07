@@ -5,7 +5,7 @@ from accounts.models import Users
 # Create your models here.
 class Rooms(models.Model):
     title=models.CharField(max_length=50,default="")
-    description=models.CharField(max_length=200)
+    description=models.TextField()
     price=models.IntegerField()
     location=models.CharField(max_length=20)
     reserved=models.BooleanField(default=False)

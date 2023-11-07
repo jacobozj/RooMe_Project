@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
-{% block title %} | User Dashboard {% endblock %}
+{% block title %} | Dashboard {% endblock %}
 
 {% block content %}
 <section id="showcase-inner" class="py-5 text-white">
     <div class="container">
       <div class="row text-center">
         <div class="col-md-12">
-          <h1 class="display-4">User Dashboard</h1>
-          <p class="lead">Administra tu RooMe</p>
+          <h1 class="display-4">Dashboard de Usuario</h1>
+          <p class="lead">Administra tus reservas RooMe</p>
         </div>
       </div>
     </div>
@@ -36,14 +36,33 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h2>Welcome {{ user.first_name }}</h2>
+          <h2>¡Bienvenido {{ user.first_name }}!</h2>
           {% if room  %}
-          <p>Here are the property listings that you have inquired about</p>   
-                  {{ room.title }} 
-                  {{ room.state }}
-                  {{ reserva.fecha_reserva}}
+          <p>Aqui estan las Habitaciones que reservaste</p>   
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#id</th>
+                  <th scope="col">Habitacion</th>
+                  <th scope="col">Departamento</th>
+                  <th scope="col">Fecha de reserva</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                    <td>{{ room.id }}</td>
+                    <td>{{ room.title }}</td>
+                    <td>{{ room.state }}</td>
+                    <td>{{ reserva.fecha_reserva }}</td>
+                    <td>
+                      <a class="btn btn-success" href="{% url 'room' id=room.id %}">Ver habitacion</a>
+                    </td>
+                  </tr>
+              </tbody>
+            </table>
           {% else %}
-            <p>You have not made any inquiries</p>
+            <p>No has hecho ninguna reserva.</p>
           {% endif %}
         </div>
       </div>
