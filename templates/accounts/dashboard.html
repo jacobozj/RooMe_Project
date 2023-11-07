@@ -47,6 +47,8 @@
                   <th scope="col">Departamento</th>
                   <th scope="col">Fecha de reserva</th>
                   <th></th>
+                  <th></th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -57,6 +59,12 @@
                     <td>{{ reserva.fecha_reserva }}</td>
                     <td>
                       <a class="btn btn-success" href="{% url 'room' id=room.id %}">Ver habitacion</a>
+                    </td>
+                    <td>
+                      <a class="btn btn-success" href="{% url 'room' id=room.id %}">Cancelar reserva</a>
+                    </td>
+                    <td>
+                      <a class="btn btn-success" href="{% url 'room' id=room.id %}">Pagar</a>
                     </td>
                   </tr>
               </tbody>
