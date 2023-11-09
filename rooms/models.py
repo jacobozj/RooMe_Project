@@ -28,4 +28,10 @@ class Reserva(models.Model):
     habitacion = models.ForeignKey(Rooms, on_delete=models.CASCADE)
     usuario = models.ForeignKey(Users, on_delete=models.CASCADE)
     fecha_reserva = models.DateTimeField(auto_now_add=True)
+
+class Comentario(models.Model):
+    habitacion = models.ForeignKey(Rooms, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(Users, on_delete=models.CASCADE)
+    comentario=models.TextField()
+
     
