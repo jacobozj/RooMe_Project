@@ -106,7 +106,7 @@ def graficar(campo):
     plt.show()
 
 
-def datos():
+def datos(request):
     campos=['sex', 'program']
     for campo in campos:
         graficar(campo)
