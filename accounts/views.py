@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from .models import Users
+from .models import Users, Reseña
 from rooms.models import Reserva, Rooms
 import matplotlib.pyplot as plt
 from collections import Counter
@@ -106,8 +106,21 @@ def graficar(campo):
     plt.show()
 
 
-def datos(request):
+def datos():
     campos=['sex', 'program']
     for campo in campos:
         graficar(campo)
     return redirect('index')
+
+
+def reseña(request):
+    if request.user.is_authenticated:
+        users=Users.objects.get(username=request.user)
+        reseña=request.POST.get("reseña")
+        Reseña.objects.create(usuario=users, reseña=reseña)
+        messages.success(request, 'Reseña enviada.')
+        return redirect('index')
+
+    else:
+        messages.error(request, "Inicie sesión para comentar.")
+        return redirect('login')

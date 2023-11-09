@@ -11,3 +11,7 @@ class Users(models.Model):
     program=models.CharField(max_length=45)
     sex=models.CharField(max_length=45)
     profile=models.CharField(max_length=15)
+
+class Reseña(models.Model):
+    usuario = models.ForeignKey(Users, on_delete=models.CASCADE)
+    reseña=models.TextField()

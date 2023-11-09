@@ -137,11 +137,16 @@
           </div>
           <a href="{% url 'reserva' id=rooms.id %}" class="btn btn-success btn-block">Reservar</a>
           <!-- Aqui esta lo de los comentarios -->
-          <div class="form-group">
-            <label for="comentario">Deja tu reseña:</label>
-            <textarea id="comentario" name="comentario" rows="4" cols="50" class="form-control"></textarea>
-          </div>
-          <button type="submit" class="btn btn-success btn-block">Enviar Comentario</button>
+          <form action="{% url 'comentario' id=rooms.id %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group"></div>
+            <div class="form-group">
+              <label for="comentario">Deja tu comentario:</label>
+              <textarea id="comentario" name="comentario" rows="4" cols="50" class="form-control"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success btn-block">Enviar comentario</button>   
+          </form>
+          
           </div>
           </div>
         

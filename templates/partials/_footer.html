@@ -24,11 +24,14 @@
             </div>
             <!-- Columna derecha para el campo de comentarios -->
             <div class="col-md-6">
+                <form action="{% url 'reseña' %}" method="POST">
+                    {% csrf_token %}
                 <div class="form-group">
-                    <label for="comentario">PQRS RooMe:</label>
-                    <textarea id="comentario" name="comentario" rows="2" class="form-control"></textarea>
+                    <label for="reseña">PQRS RooMe:</label>
+                    <textarea id="reseña" name="reseña" rows="2" class="form-control"></textarea>
                 </div>
-                <button type="submit" class="btn btn-success btn-block">Enviar Comentario</button>
+                <button type="submit" class="btn btn-success btn-block">Enviar reseña</button>
+                </form>
             </div>
         </div>
     </div>

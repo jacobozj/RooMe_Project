@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Rooms, Reserva
+from .models import Rooms, Reserva, Comentario
 from accounts.models import Users
 from django.contrib.auth.models import User
 from django.db.models import Q
@@ -110,6 +110,20 @@ def delete_account(request):
     auth.logout(request)
     messages.success(request, 'Has eliminado tu cuenta.')
     return render(request, 'accounts/register.html')
+    
+def comentario(request,id):
+    if request.user.is_authenticated:
+        users=Users.objects.get(username=request.user)
+        room=get_object_or_404(Rooms,pk=id)
+        comentario=request.POST.get("comentario")
+        Comentario.objects.create(habitacion=room, usuario=users, comentario=comentario)
+        messages.success(request, 'Comentario enviado.')
+        return redirect('room', id=id)
+
+    else:
+        messages.error(request, "Inicie sesión para comentar.")
+        return redirect('login')
+
     
     
 
