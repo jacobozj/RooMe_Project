@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Rooms, Reserva
 from accounts.models import Users
+from django.contrib.auth.models import User
 from django.db.models import Q
-from django.contrib import messages
+from django.contrib import messages, auth
 
 # Create your views here.
 def index(request):
@@ -74,6 +75,7 @@ def booking(request, id):
                 Reserva.objects.create(habitacion=room, usuario=users)
                 room.available_bedrooms=room.available_bedrooms+1
                 room.save()
+                messages.success(request, 'Has hecho tu reserva.')
                 return render(request, 'accounts/dashboard.html', {'room': room})
         else:
             messages.error(request, "No puede reservar como admin.")
@@ -81,3 +83,33 @@ def booking(request, id):
     else:
         messages.error(request, "Inicie sesión para reservar.")
         return redirect('login')
+    
+
+def delete_room(request):
+    users=Users.objects.get(username=request.user)
+    reserva=Reserva.objects.get(usuario_id=users.id)
+    reserva.delete()
+    messages.success(request, 'Has eliminado tu reserva.')
+
+    room=Rooms.objects.get(id=reserva.habitacion_id)
+    if room.available_bedrooms==room.bedrooms:
+        room.reserved=False
+        room.available_bedrooms=room.available_bedrooms-1
+        room.save()
+    else: 
+        room.available_bedrooms=room.available_bedrooms-1
+        room.save()
+
+    return render(request, 'accounts/dashboard.html')
+
+def delete_account(request):
+    users=Users.objects.get(username=request.user)
+    users.delete()
+    user=User.objects.get(username=request.user)
+    user.delete()
+    auth.logout(request)
+    messages.success(request, 'Has eliminado tu cuenta.')
+    return render(request, 'accounts/register.html')
+    
+    
+
