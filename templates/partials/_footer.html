@@ -1,5 +1,35 @@
-<!-- Footer -->
+{% comment %} <!-- Footer -->
 <footer id="main-footer" class="py-4 bg-primary text-black text-center">
     Copyright &copy;
     <span class="year"></span> RooMe
+    <!-- Aqui esta lo de los comentarios -->
+    <div class="form-group">
+        <label for="comentario">Deja tu comentario:</label>
+        <textarea id="comentario" name="comentario" rows="4" cols="50" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success btn-block">Enviar Comentario</button>
+    </div>
+    </div>
+</footer> {% endcomment %}
+
+<footer id="main-footer" class="py-4 text-black" style="background-color: #E0F4FF;">
+    <div class="container">
+        <div class="row">
+            <!-- Columna izquierda para el copyright y enlaces a páginas -->
+            <div class="col-md-6">
+                Copyright &copy; <span class="year"></span> RooMe
+                <br>
+                <a href="{% url 'index' %}" class="text-black">Home</a> |
+                <a href="{% url 'about' %}" class="text-black">About</a>
+            </div>
+            <!-- Columna derecha para el campo de comentarios -->
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="comentario">PQRS RooMe:</label>
+                    <textarea id="comentario" name="comentario" rows="2" class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success btn-block">Enviar Comentario</button>
+            </div>
+        </div>
+    </div>
 </footer>

@@ -136,9 +136,15 @@
             
           </div>
           <a href="{% url 'reserva' id=rooms.id %}" class="btn btn-success btn-block">Reservar</a>
-        </div>
+          <!-- Aqui esta lo de los comentarios -->
+          <div class="form-group">
+            <label for="comentario">Deja tu reseña:</label>
+            <textarea id="comentario" name="comentario" rows="4" cols="50" class="form-control"></textarea>
+          </div>
+          <button type="submit" class="btn btn-success btn-block">Enviar Comentario</button>
+          </div>
+          </div>
         
-      </div>
     </div>
   </section>
 

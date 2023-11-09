@@ -63,7 +63,11 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff; }
+  background-color: #fff; 
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }

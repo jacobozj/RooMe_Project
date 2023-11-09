@@ -1,6 +1,12 @@
 /* Cambia el font-family en el cuerpo de tu página */
 body {
   font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.content {
+  flex: 1;
 }
 
 
