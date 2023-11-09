@@ -1,0 +1,5 @@
+Django
+Pillow==6.2.0
+pymysql==1.1.0
+cryptography
+matplotlib
