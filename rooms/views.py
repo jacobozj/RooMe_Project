@@ -88,16 +88,17 @@ def booking(request, id):
 def delete_room(request):
     users=Users.objects.get(username=request.user)
     reserva=Reserva.objects.get(usuario_id=users.id)
-    reserva.delete()
     messages.success(request, 'Has eliminado tu reserva.')
 
     room=Rooms.objects.get(id=reserva.habitacion_id)
     if room.available_bedrooms==room.bedrooms:
         room.reserved=False
         room.available_bedrooms=room.available_bedrooms-1
+        reserva.delete()
         room.save()
     else: 
         room.available_bedrooms=room.available_bedrooms-1
+        reserva.delete()
         room.save()
 
     return render(request, 'accounts/dashboard.html')

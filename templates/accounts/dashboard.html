@@ -61,10 +61,10 @@
                       <a class="btn btn-success" href="{% url 'room' id=room.id %}">Ver habitación</a>
                     </td>
                     <td>
-                      <a class="btn btn-success" href="{% url 'delete_room' %}">Cancelar reserva</a>
+                      <a class="btn btn-danger" href="{% url 'delete_room' %}">Cancelar reserva</a>
                     </td>
                     <td>
-                      <a class="btn btn-success" href="https://www.pse.com.co/persona">Pagar</a>
+                      <a class="btn btn-secondary" href="https://www.pse.com.co/persona">Pagar</a>
                     </td>
                   </tr>
               </tbody>
@@ -72,7 +72,7 @@
           {% else %}
             <p>No has hecho ninguna reserva.</p>
           {% endif %}
-          <a class="btn btn-success" href="{% url 'delete_account' %}">Eliminar cuenta</a>
+          <a class="btn btn-danger" href="{% url 'delete_account' %}">Eliminar cuenta</a>
         </div>
       </div>
     </div>

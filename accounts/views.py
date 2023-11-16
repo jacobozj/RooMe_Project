@@ -101,7 +101,7 @@ def graficar(campo):
     plt.xlabel(campo)
     plt.ylabel('Cantidad')
     plt.title(f'Gráfico de {campo}')
-    plt.xticks(rotation=90)
+    plt.xticks(rotation=45)
     plt.yticks(range(min(conteo.values()), max(conteo.values()) + 1))
     plt.show()
 

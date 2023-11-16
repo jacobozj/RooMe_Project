@@ -1632,6 +1632,8 @@ a.btn.disabled,
 fieldset:disabled a.btn {
   pointer-events: none; }
 
+
+
 .btn-primary {
   color: #fff;
   background-color: #10284e;
@@ -1657,8 +1659,8 @@ fieldset:disabled a.btn {
 
 .btn-secondary {
   color: #212529;
-  background-color: #6C96F8;
-  border-color: #6C96F8; }
+  background-color: #30caa0;
+  border-color: #30caa0; }
   .btn-secondary:hover {
     color: #fff;
     background-color: #29ab88;
@@ -1700,6 +1702,7 @@ fieldset:disabled a.btn {
     .btn-success:not(:disabled):not(.disabled):active:focus, .btn-success:not(:disabled):not(.disabled).active:focus,
     .show > .btn-success.dropdown-toggle:focus {
       box-shadow: 0 0 0 0.5px #6C96F8; }
+
 
 .btn-info {
   color: #fff;
